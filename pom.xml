@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<name>Ehcache Json Provider</name>
+	<artifactId>ehcache-json-provider</artifactId>
+	<groupId>adjuggler</groupId>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<url>https://wiki.adjuggler.com/index.php?title=Ajdev</url>
+
+	<properties>
+		<gitUrl>git@git.corp.adjuggler.net:ehcache-json-provider.git</gitUrl>
+	</properties>
+
+	<parent>
+		<groupId>adjuggler</groupId>
+		<artifactId>aj-java-common</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<!-- we could extend either resteasy-jackson-provider or jackson-jaxrs-json-provider -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+		</dependency>
+		<!-- this one was not as robust, nor maintained -->
+		<!--
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+		</dependency>
+		-->
+
+		<!-- JACKSON JSON library -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-afterburner</artifactId>
+		</dependency>
+
+		<!-- RESTEASY JAX-RS ANNOTATIONS -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>${restEasyVersion}</version>
+		</dependency>
+
+		<!-- LOGBACK -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+		<!-- TERRACOTTA / EHCACHE distributed objects -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core-ee</artifactId>
+		</dependency>
+	</dependencies>
+
+	<!-- external linkages; scm, repositories, pluginRepositories, distributionManagement -->
+	<scm>
+		<connection>scm:git:${gitUrl}</connection>
+		<url>scm:git:${gitUrl}</url>
+		<developerConnection>scm:git:${gitUrl}</developerConnection>
+	</scm>
+</project>
