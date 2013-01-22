@@ -2,7 +2,10 @@ package adjuggler.json;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
+
+import net.sf.ehcache.search.Results;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,18 +16,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
-public class AjContextResolver {
+public class AjContextResolver implements ContextResolver<ObjectMapper> {
 
 	private Logger log = LoggerFactory.getLogger(AjContextResolver.class);
 
-    private ObjectMapper objectMapper;
+	private ObjectMapper objectMapper;
 
-    public AjContextResolver() throws Exception {
-        log.debug("constructing");
-    	this.objectMapper = new AjObjectMapper();
-    }
-    public ObjectMapper getContext(Class<?> objectType) {
-    	log.debug("looking up "+objectType.getCanonicalName());
-    	return objectMapper;
-    }
+	public AjContextResolver() throws Exception {
+		this.objectMapper = new AjObjectMapper();
+		log.debug("constructing");
+	}
+
+	@Override
+	public ObjectMapper getContext(Class<?> objectType) {
+		log.debug("looking up "+objectType.getCanonicalName());
+		return objectMapper;
+	}
 }
