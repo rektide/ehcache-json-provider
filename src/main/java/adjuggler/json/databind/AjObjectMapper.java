@@ -2,9 +2,7 @@ package adjuggler.json.databind;
 
 import adjuggler.json.ser.ResultsSerializer;
 
-import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 
 public class AjObjectMapper extends ObjectMapper {

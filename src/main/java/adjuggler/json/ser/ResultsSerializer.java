@@ -32,7 +32,7 @@ public class ResultsSerializer extends StdSerializer<Results>  {
 			final List<Result> all = results.all();
 
 			// get result type serializer
-			final Class valueClass = all.get(0).getClass();
+			final Class valueClass = all.get(0).getValue().getClass();
 			JsonSerializer elementSer= serProvider.findValueSerializer(valueClass, null);
 
 			// run through all results

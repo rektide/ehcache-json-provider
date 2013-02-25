@@ -5,8 +5,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 
-import net.sf.ehcache.search.Results;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
