@@ -25,9 +25,8 @@ public class AjContextResolver implements ContextResolver<ObjectMapper> {
 		log.debug("constructing");
 	}
 
-	@Override
 	public ObjectMapper getContext(Class<?> objectType) {
 		log.debug("looking up "+objectType.getCanonicalName());
-		return objectMapper;
+		return this.objectMapper;
 	}
 }
