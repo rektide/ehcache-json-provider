@@ -7,12 +7,6 @@
 	<packaging>jar</packaging>
 	<version>1.0</version>
 
-	<parent>
-		<groupId>adjuggler</groupId>
-		<artifactId>aj-java-common</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
-
 	<properties>
 		<gitUrl>https://github.com/rektide/ehcache-json-provider.git</gitUrl>
 		<jacksonVersion>2.1.2</jacksonVersion>
